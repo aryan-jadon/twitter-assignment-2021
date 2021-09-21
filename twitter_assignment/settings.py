@@ -114,6 +114,8 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# twitter keys
-twitter_consumer_key = config('twitter_consumer_key')
-twitter_secret_key = config('twitter_secret_key')
+# twitter keys for operations
+TWITTER_CONSUMER_KEY = config('twitter_consumer_key')
+TWITTER_SECRET_KEY = config('twitter_secret_key')
+TWITTER_CONSUMER_TOKEN = config('twitter_consumer_token')
+TWITTER_SECRET_TOKEN = config('twitter_secret_token')

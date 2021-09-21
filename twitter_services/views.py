@@ -1,13 +1,14 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
 from django.contrib import messages
+from django.conf import settings
 import tweepy
 
-auth = tweepy.OAuthHandler('DbwTjGUxXot2M4rNEEv2NulRR',
-                           '4Hk8jJr133Xt7tqV4DQcB1UXnRNrwf0c2ygLUkMUAtqS9FPsXQ')
+auth = tweepy.OAuthHandler(settings.TWITTER_CONSUMER_KEY,
+                           settings.TWITTER_SECRET_KEY)
 
-auth.set_access_token('1440090791230070785-sExgZJz7qoE6BSw5dHVkdAqtdtI9Lw',
-                      '9zerxO7vkKzKgKAfMLjd3aual0D3SrpdSwxPvLNRRvuHO')
+auth.set_access_token(settings.TWITTER_CONSUMER_TOKEN,
+                      settings.TWITTER_SECRET_TOKEN)
 
 api = tweepy.API(auth)
 

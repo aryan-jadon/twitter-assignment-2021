@@ -11,7 +11,8 @@
 
 
 ### How to Run this project 
-    
+#### Create venv
+
     If you are running Python 3.4+, you can use the venv module baked into Python: 
     $ python -m venv [directory]
     This command will create a venv in the specified directory and copy pip and easy_install into it too.
