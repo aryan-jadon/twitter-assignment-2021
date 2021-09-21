@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.shortcuts import redirect
+from django.contrib import messages
 import tweepy
 
 auth = tweepy.OAuthHandler('DbwTjGUxXot2M4rNEEv2NulRR',
@@ -28,6 +29,7 @@ def create_view(request):
     if request.method == "POST":
         user_tweet = request.POST['user_tweet']
         api.update_status(user_tweet)
+        messages.success(request, 'Tweet Successfully Created!')
         return redirect('index_page')
     else:
         return render(request, 'create_tweet.html')
@@ -36,4 +38,5 @@ def create_view(request):
 def delete_view(request):
     if request.method == "POST":
         api.destroy_status(request.POST['tweet_id'])
+        messages.success(request, 'Tweet Successfully Deleted!')
     return redirect('index_page')

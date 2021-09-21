@@ -39,6 +39,14 @@
       </div>
     </nav>
 
+    {% if messages %}
+        {% for message in messages %}
+        <div class="alert alert-success" role="alert">
+            {{ message }}
+        </div>
+        {% endfor %}
+     {% endif %}
+
     <main role="main" class="container">
       <div class="jumbotron">
         <h1>All Tweets</h1>
@@ -61,6 +69,7 @@
         </form>
       </div>
     {% endfor %}
+
     </main>
 
     <!-- Optional JavaScript -->
