@@ -51,7 +51,7 @@ ROOT_URLCONF = 'twitter_assignment.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'templates')],  # setting up django html pages path
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -114,7 +114,7 @@ MEDIA_URL = '/media/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# twitter keys for operations
+# twitter keys for CRUD Operations
 TWITTER_CONSUMER_KEY = config('twitter_consumer_key')
 TWITTER_SECRET_KEY = config('twitter_secret_key')
 TWITTER_CONSUMER_TOKEN = config('twitter_consumer_token')

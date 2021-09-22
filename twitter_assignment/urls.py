@@ -13,19 +13,23 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+# django library imports
 from django.contrib import admin
 from django.urls import path, include
 from django.conf import settings
 from django.conf.urls.static import static
 
+# url pattern mapper
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', include('twitter_services.urls')),
+    path('admin/', admin.site.urls),  # admin url
+    path('', include('twitter_services.urls')), # by default point to twitter_services app urls
 ]
 
-# project settings
+# project settings to use in production and testing mode
 if settings.DEBUG:
+    # for static(js,css,images) files
     urlpatterns += static(settings.STATIC_URL,
                           document_root=settings.STATIC_ROOT)
+    # for media files
     urlpatterns += static(settings.MEDIA_URL,
                           document_root=settings.MEDIA_ROOT)
