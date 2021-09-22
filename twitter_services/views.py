@@ -21,6 +21,7 @@ api = tweepy.API(auth)
 # function for index page requests handling
 def retrieve_index_page(request):
     """
+    author - aryan jadon
     function which extracts all the tweets of the user using twitter api credentials
     tweets will gets stored in a dictionary objects for index page display.
     @param request: django request
@@ -50,6 +51,7 @@ def retrieve_index_page(request):
 # function for create tweet request handling
 def create_view(request):
     """
+    author - aryan jadon
     function which creates new tweet using post request
 
     @param request: django request data
@@ -75,6 +77,7 @@ def create_view(request):
 # function for delete tweet request handling
 def delete_view(request):
     """
+    author - aryan jadon
     function to delete the tweet using post request data
     @param request: django request
     @return: renders the request to index page
