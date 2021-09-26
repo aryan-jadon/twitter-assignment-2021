@@ -21,7 +21,8 @@ api = tweepy.API(auth)
 # function for index page requests handling
 def retrieve_index_page(request):
     """
-    author - aryan jadon
+    Author - Aryan Jadon
+
     function which extracts all the tweets of the user using twitter api credentials
     tweets will gets stored in a dictionary objects for index page display.
     @param request: django request
@@ -51,7 +52,8 @@ def retrieve_index_page(request):
 # function for create tweet request handling
 def create_view(request):
     """
-    author - aryan jadon
+    Author - Aryan Jadon
+
     function which creates new tweet using post request
 
     @param request: django request data
@@ -62,10 +64,15 @@ def create_view(request):
         # get the user tweet data from post request
         user_tweet = request.POST['user_tweet']
 
-        # create the tweet
-        api.update_status(user_tweet)
-        # update the django messages
-        messages.success(request, 'Tweet Successfully Created!')
+        # check for duplicate
+        if check_for_duplicate(user_tweet):
+            # create the tweet
+            api.update_status(user_tweet)
+            # update the django messages
+            messages.success(request, 'Tweet Successfully Created!')
+        else:
+            # update the django messages
+            messages.warning(request, 'Duplicated Tweet- Cannot be posted !!')
 
         # redirects to the index page, containing all tweets
         return redirect('index_page')
@@ -74,10 +81,35 @@ def create_view(request):
         return render(request, 'create_tweet.html')
 
 
+# function to check for duplicate tweet
+def check_for_duplicate(tweet_text):
+    """
+    Author - Aryan Jadon
+
+    function to check for duplicated tweet
+
+    @param tweet_text: tweet data
+    @return: boolean value
+    """
+
+    # get all tweets
+    public_tweets = api.home_timeline()
+
+    # loop through tweets
+    for tweet in public_tweets:
+        if tweet_text == tweet.text:
+            # if already present return false
+            return False
+
+    # return true
+    return True
+
+
 # function for delete tweet request handling
 def delete_view(request):
     """
-    author - aryan jadon
+    Author - Aryan Jadon
+
     function to delete the tweet using post request data
     @param request: django request
     @return: renders the request to index page
