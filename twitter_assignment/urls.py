@@ -22,7 +22,7 @@ from django.conf.urls.static import static
 # url pattern mapper
 urlpatterns = [
     path('admin/', admin.site.urls),  # admin url
-    path('', include('twitter_services.urls')), # by default point to twitter_services app urls
+    path('', include('twitter_services.urls')),  # by default point to twitter_services app urls
 ]
 
 # project settings to use in production and testing mode

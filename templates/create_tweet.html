@@ -1,68 +1,67 @@
 {% load static %}
-<!--Author: Supreetha M A, Swathi Anandram-->
 <!doctype html>
 <html lang="en">
-
+<!--Author: Supreetha M A, Swathi Anandram-->
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-  <title>Twitter Assignment</title>
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/navbar-static/">
+    <title>Twitter Assignment</title>
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.0/examples/navbar-static/">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
-    integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
-  <!-- Custom styles for this template -->
-  <link href="{% static 'navbar-top.css" rel="stylesheet' %}">
+    <!-- Custom styles for this template -->
+    <link href="{% static 'navbar-top.css" rel="stylesheet' %}">
 
 </head>
 
 <body>
 
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
     <a class="navbar-brand" href="{% url 'index_page' %}">Twitter Assignment</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse"
-      aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+            aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarCollapse">
-      <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" href="{% url 'index_page' %}">Home <span class="sr-only">(current)</span></a>
-        </li>
-      </ul>
+        <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+                <a class="nav-link" href="{% url 'index_page' %}">Home <span class="sr-only">(current)</span></a>
+            </li>
+        </ul>
     </div>
-  </nav>
+</nav>
 
-  <main role="main" class="container">
+<main role="main" class="container">
     <form action={% url 'create_tweet' %} method="post">
-      {% csrf_token %}
-      <div class="form-group">
-        <label for="tweet_area_text">
-          <h3>Post Tweet<img src="https://img.icons8.com/color/50/000000/twitter--v2.png" /></h3>
-        </label>
-        <input type="text" name="user_tweet" class="form-control" placeholder="What's on your mind ?" required />
-      </div>
-      <input type="submit" class="btn btn-primary mb-2" value="Tweet" />
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="tweet_area_text">
+                <h3>Post Tweet<img src="https://img.icons8.com/color/50/000000/twitter--v2.png"/></h3>
+            </label>
+            <input type="text" name="user_tweet" class="form-control" placeholder="What's on your mind ?" required/>
+        </div>
+        <input type="submit" class="btn btn-primary mb-2" value="Tweet"/>
     </form>
-  </main>
+</main>
 
 
-  <!-- Optional JavaScript -->
-  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-    integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-    crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-    integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-    crossorigin="anonymous"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-    integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-    crossorigin="anonymous"></script>
+<!-- Optional JavaScript -->
+<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>
